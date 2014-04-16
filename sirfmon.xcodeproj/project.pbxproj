@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B308915D1822E9BC004FC35F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B308915C1822E9BC004FC35F /* Foundation.framework */; };
-		B30891601822E9BC004FC35F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B308915F1822E9BC004FC35F /* main.m */; };
-		B30891641822E9BC004FC35F /* sirfmon.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B30891631822E9BC004FC35F /* sirfmon.1 */; };
+		B308916B1822E9F0004FC35F /* sirfmon.c in Sources */ = {isa = PBXBuildFile; fileRef = B308916A1822E9F0004FC35F /* sirfmon.c */; };
+		B308916D1822EA3F004FC35F /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B308916C1822EA3F004FC35F /* libncurses.dylib */; };
+		B35C759818282DC800A836F3 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = B35C759718282DC800A836F3 /* hid.c */; };
+		B35C759A1828663100A836F3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35C75991828663100A836F3 /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,7 +21,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				B30891641822E9BC004FC35F /* sirfmon.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -28,9 +29,12 @@
 /* Begin PBXFileReference section */
 		B30891591822E9BC004FC35F /* sirfmon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sirfmon; sourceTree = BUILT_PRODUCTS_DIR; };
 		B308915C1822E9BC004FC35F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B308915F1822E9BC004FC35F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B30891621822E9BC004FC35F /* sirfmon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sirfmon-Prefix.pch"; sourceTree = "<group>"; };
-		B30891631822E9BC004FC35F /* sirfmon.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = sirfmon.1; sourceTree = "<group>"; };
+		B308916A1822E9F0004FC35F /* sirfmon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sirfmon.c; sourceTree = "<group>"; };
+		B308916C1822EA3F004FC35F /* libncurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libncurses.dylib; path = usr/lib/libncurses.dylib; sourceTree = SDKROOT; };
+		B35C759618282DC800A836F3 /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
+		B35C759718282DC800A836F3 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
+		B35C75991828663100A836F3 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B35C759A1828663100A836F3 /* IOKit.framework in Frameworks */,
+				B308916D1822EA3F004FC35F /* libncurses.dylib in Frameworks */,
 				B308915D1822E9BC004FC35F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +71,8 @@
 		B308915B1822E9BC004FC35F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B35C75991828663100A836F3 /* IOKit.framework */,
+				B308916C1822EA3F004FC35F /* libncurses.dylib */,
 				B308915C1822E9BC004FC35F /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -73,8 +81,9 @@
 		B308915E1822E9BC004FC35F /* sirfmon */ = {
 			isa = PBXGroup;
 			children = (
-				B308915F1822E9BC004FC35F /* main.m */,
-				B30891631822E9BC004FC35F /* sirfmon.1 */,
+				B308916A1822E9F0004FC35F /* sirfmon.c */,
+				B35C759618282DC800A836F3 /* hidapi.h */,
+				B35C759718282DC800A836F3 /* hid.c */,
 				B30891611822E9BC004FC35F /* Supporting Files */,
 			);
 			path = sirfmon;
@@ -139,7 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B30891601822E9BC004FC35F /* main.m in Sources */,
+				B308916B1822E9F0004FC35F /* sirfmon.c in Sources */,
+				B35C759818282DC800A836F3 /* hid.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +261,7 @@
 				B30891691822E9BC004FC35F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
